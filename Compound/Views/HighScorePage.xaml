@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:local="clr-namespace:Compound;assembly=Compound" 
+		x:Class="Compound.HighScorePage"
+		Title="High Scores" >
+	<ContentPage.BindingContext>
+		<local:HighScoreViewModel />
+	</ContentPage.BindingContext>
+	<ContentPage.Content>
+		<StackLayout Orientation="Vertical">
+			<ListView ItemsSource="{Binding HighScoresList}">
+			</ListView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
