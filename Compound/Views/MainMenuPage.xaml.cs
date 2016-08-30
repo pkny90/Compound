@@ -1,12 +1,19 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 
 namespace Compound
 {
-	public partial class CompoundPage : ContentPage
+	public partial class MainMenuPage : ContentPage
 	{
-		public CompoundPage()
+		public MainMenuPage()
 		{
 			InitializeComponent();
+		}
+
+		public void GoToHighScorePage(object sender, EventArgs e) 
+		{
+			var highscorePage = new HighScorePage();
+			Navigation.PushAsync(highscorePage);
 		}
 	}
 }
