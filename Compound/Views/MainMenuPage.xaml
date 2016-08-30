@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Compound" x:Class="Compound.MainMenuPage">
-	<StackLayout Orientation="Vertical">
-		<Label Text="Main Menu" />
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:local="clr-namespace:Compound" 
+		x:Class="Compound.MainMenuPage">
+	<StackLayout Orientation="Vertical" TranslationY="100">
+		<Label Text="Compound" FontSize="30" XAlign="Center" />
+		<Label Text="A compound word game" FontSize="20" XAlign="Center" /> 
 		<Button Text="Go to High Scores" Clicked="GoToHighScorePage" /> 
 	</StackLayout>
 </ContentPage>

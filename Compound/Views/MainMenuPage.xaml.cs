@@ -8,6 +8,7 @@ namespace Compound
 		public MainMenuPage()
 		{
 			InitializeComponent();
+			NavigationPage.SetHasNavigationBar(this, false);
 		}
 
 		public void GoToHighScorePage(object sender, EventArgs e) 
