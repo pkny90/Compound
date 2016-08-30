@@ -8,7 +8,7 @@ namespace Compound
 		{
 			InitializeComponent();
 
-			MainPage = new CompoundPage();
+			MainPage = new NavigationPage(new MainMenuPage());
 		}
 
 		protected override void OnStart()
