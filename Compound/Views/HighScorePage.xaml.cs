@@ -11,9 +11,7 @@ namespace Compound
 		public HighScorePage()
 		{
 			InitializeComponent();
-			var soundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", async () => {
-				SwapSoundIcon();	
-			});
+			var soundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", SwapSoundIcon);
 
 			ToolbarItems.Add(soundToolbar);
 		}
