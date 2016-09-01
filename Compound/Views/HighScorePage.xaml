@@ -8,8 +8,9 @@
 		<local:HighScoreViewModel />
 	</ContentPage.BindingContext>
 	<ContentPage.Content>
-		<StackLayout Orientation="Vertical">
-			<ListView ItemsSource="{Binding HighScoresList}">
+		<StackLayout Orientation="Vertical"
+				Padding="10">
+ 			<ListView ItemsSource="{Binding HighScoresList}">
 			</ListView>
 		</StackLayout>
 	</ContentPage.Content>

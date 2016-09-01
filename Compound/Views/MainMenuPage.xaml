@@ -3,9 +3,21 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		xmlns:local="clr-namespace:Compound" 
 		x:Class="Compound.MainMenuPage">
-	<StackLayout Orientation="Vertical" TranslationY="100">
-		<Label Text="Compound" FontSize="30" XAlign="Center" />
-		<Label Text="A compound word game" FontSize="20" XAlign="Center" /> 
-		<Button Text="Go to High Scores" Clicked="GoToHighScorePage" /> 
+	<StackLayout Orientation="Vertical" 
+			Padding="50" 
+			HorizontalOptions="Center"
+			BackgroundColor="Transparent">
+		
+		<Button Text=" Sound " HorizontalOptions="End" BackgroundColor="Blue" TextColor="White"/>
+		<Label Text="Compound" FontSize="50" XAlign="Center" />
+		<Label Text="A compound word game" FontSize="15" XAlign="Center"  /> 
+		<StackLayout VerticalOptions="CenterAndExpand" >
+
+		<Button Text="Play" Clicked="ChooseDifficulty" BackgroundColor="Blue" TextColor="White"/>
+		<Button Text="About" Clicked="GoToAboutPage" BackgroundColor="Blue" TextColor="White"/>
+		<Button Text="High Scores" Clicked="GoToHighScorePage" BackgroundColor="Blue" TextColor="White"/> 
+
+			</StackLayout>
+
 	</StackLayout>
 </ContentPage>
