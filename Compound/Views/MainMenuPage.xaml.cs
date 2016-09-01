@@ -6,17 +6,13 @@ namespace Compound
 {
 	public partial class MainMenuPage : ContentPage
 	{
-		
+		private bool soundIsPlaying = true;
 		public MainMenuPage()
 		{
 			InitializeComponent();
-			NavigationPage.SetHasNavigationBar(this, false);
-			SizeChanged += OnSizeChanged;		
-		}
+			var soundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", SwapSoundIcon);
 
-		void OnSizeChanged(object sender, EventArgs e)
-		{
-			
+			ToolbarItems.Add(soundToolbar);
 		}
 
 		public void GoToHighScorePage(object sender, EventArgs e)
@@ -35,6 +31,24 @@ namespace Compound
 			var action = await DisplayActionSheet("Please select a difficulty:", "Cancel", null, "Easy", "Medium", "Hard");
 			Debug.WriteLine("Action: " + action);
 
+		}
+
+		private void SwapSoundIcon()
+		{
+			ToolbarItems.Clear();
+			ToolbarItem newSoundToolbar;
+
+			if (soundIsPlaying)
+			{
+				soundIsPlaying = false;
+				newSoundToolbar = new ToolbarItem("Sound", "sound-icon-off.png", SwapSoundIcon);
+			}
+			else
+			{
+				soundIsPlaying = true;
+				newSoundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", SwapSoundIcon);
+			}
+			ToolbarItems.Add(newSoundToolbar);
 		}
 	}
 }

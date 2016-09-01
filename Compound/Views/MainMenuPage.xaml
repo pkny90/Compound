@@ -8,7 +8,6 @@
 			HorizontalOptions="Center"
 			BackgroundColor="Transparent">
 		
-		<Button Text=" Sound " HorizontalOptions="End" BackgroundColor="Blue" TextColor="White"/>
 		<Label Text="Compound" FontSize="50" XAlign="Center" />
 		<Label Text="A compound word game" FontSize="15" XAlign="Center"  /> 
 		<StackLayout VerticalOptions="CenterAndExpand" >
