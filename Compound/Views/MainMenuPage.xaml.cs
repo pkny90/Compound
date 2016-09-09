@@ -7,12 +7,15 @@ namespace Compound
 	public partial class MainMenuPage : ContentPage
 	{
 		private bool soundIsPlaying = true;
+
 		public MainMenuPage()
 		{
 			InitializeComponent();
 			var soundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", SwapSoundIcon);
 
 			ToolbarItems.Add(soundToolbar);
+
+			DependencyService.Get<IAudio>().PlayAudioFile("yayayaya.mp3");
 		}
 
 		public void GoToHighScorePage(object sender, EventArgs e)
@@ -42,11 +45,13 @@ namespace Compound
 			{
 				soundIsPlaying = false;
 				newSoundToolbar = new ToolbarItem("Sound", "sound-icon-off.png", SwapSoundIcon);
+				DependencyService.Get<IAudio>().Stop();
 			}
 			else
 			{
 				soundIsPlaying = true;
-				newSoundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", SwapSoundIcon);
+				newSoundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", SwapSoundIcon);;
+				DependencyService.Get<IAudio>().PlayAudioFile("yayayaya.mp3");
 			}
 			ToolbarItems.Add(newSoundToolbar);
 		}

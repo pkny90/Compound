@@ -141,10 +141,12 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="DBConnection.cs" />
+    <Compile Include="AudioService.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\sound-icon-off.png" />
     <BundleResource Include="Resources\sound-icon-on.png" />
+    <BundleResource Include="Resources\yayayaya.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.0.1.6495\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.0.1.6495\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
