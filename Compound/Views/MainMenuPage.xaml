@@ -7,7 +7,6 @@
 			Padding="50" 
 			HorizontalOptions="Center"
 			BackgroundColor="Transparent">
-		
 		<Label Text="Compound" FontSize="50" XAlign="Center" />
 		<Label Text="A compound word game" FontSize="15" XAlign="Center"  /> 
 		<StackLayout VerticalOptions="CenterAndExpand" >

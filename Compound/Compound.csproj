@@ -58,6 +58,7 @@
     <Compile Include="Data\IDBConnection.cs" />
     <Compile Include="Data\DataAccessService.cs" />
     <Compile Include="CONSTANTS.cs" />
+    <Compile Include="IAudio.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

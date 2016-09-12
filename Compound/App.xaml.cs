@@ -13,11 +13,15 @@ namespace Compound
 
 		protected override void OnStart()
 		{
+			DependencyService.Get<IAudio>().PlayAudioFile("yayayaya.mp3");
+
 			// Handle when your app starts
 		}
 
 		protected override void OnSleep()
 		{
+			DependencyService.Get<IAudio>().Stop();
+
 			// Handle when your app sleeps
 		}
 
