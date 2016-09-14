@@ -32,11 +32,10 @@ namespace Compound
 		async void ChooseDifficulty(object sender, EventArgs e)
 		{
 			var action = await DisplayActionSheet("Please select a difficulty:", "Cancel", null, "Easy", "Medium", "Hard");
-			Debug.WriteLine("Action: " + action);
 
 		}
 
-		private void SwapSoundIcon()
+		public void SwapSoundIcon()
 		{
 			ToolbarItems.Clear();
 			ToolbarItem newSoundToolbar;
