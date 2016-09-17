@@ -1,47 +1,65 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using Newtonsoft.Json;
 
 namespace Compound
 {
     class Game
     {
-        public string Word { get; private set; }
-        public string FirstHalfWord { get; private set; }
-        public string SecondHalfWord { get; private set; }
-
+		public Word currentWord { get; private set; }
         public int Score { get; private set; }
         public int RemainingLives { get; private set; }
 
-        public Game(string Word, string FirstHalfWord, string SecondHalfWord)
+		private List<Word> remainingGameWords;
+        public Game()
         {
-            this.Word = Word;
-            this.FirstHalfWord = FirstHalfWord;
-            this.SecondHalfWord = SecondHalfWord;
-
-            this.Score = 0;
+		    this.Score = 0;
             this.RemainingLives = 3;
 
-            StartNewRound();
+			this.remainingGameWords = GetWordsFromJsonFile("Compound.Data.wordlist.json");
+			StartNewRound();
+
+			System.Diagnostics.Debug.WriteLine(currentWord.word);
         }
+
+		private List<Word> GetWordsFromJsonFile(string fileName) 
+		{
+			FileReader fileReader = new FileReader(fileName);
+			string jsonText = fileReader.JsonText;
+
+			return JsonConvert.DeserializeObject<List<Word>>(jsonText);
+
+		}
 
         public void StartNewRound()
         {
-            
+			// Pick a random word and remove it from the list
+			Random random = new Random();
+			var i = random.Next(remainingGameWords.Count);
+
+			currentWord = remainingGameWords[i];
+			remainingGameWords.RemoveAt(i);
         }
 
         public bool MakeGuess(string Guess)
         {
-            if (Guess == Word)
+			if (Guess == currentWord.word)
             {
-                this.Score += 1000;
+				StartNewRound();
+
+				this.Score += 1000;
                 return true;
             }
             else
             {
-                this.RemainingLives--;
+				StartNewRound();
+
+				this.RemainingLives--;
                 return false;
             }
         }
@@ -54,11 +72,11 @@ namespace Compound
 
             if (randomNumber == 1)
             {
-                return this.FirstHalfWord;
+				return this.currentWord.first_word;
             }
             else
             {
-                return this.SecondHalfWord;
+				return this.currentWord.second_word;
             }
         }
     }

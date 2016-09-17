@@ -38,6 +38,7 @@
     <EmbeddedResource Include="Views\AboutPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Data\wordlist.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -59,6 +60,9 @@
     <Compile Include="Data\DataAccessService.cs" />
     <Compile Include="CONSTANTS.cs" />
     <Compile Include="IAudio.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="FileReader.cs" />
+    <Compile Include="Models\Word.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -79,9 +83,42 @@
     <Reference Include="SQLite-net">
       <HintPath>..\packages\sqlite-net-pcl.1.1.2\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Images\back.jpg" />
+    <None Include="Images\ball.jpg" />
+    <None Include="Images\basket.jpg" />
+    <None Include="Images\basketball.jpg" />
+    <None Include="Images\bone.jpg" />
+    <None Include="Images\book.jpg" />
+    <None Include="Images\butter.jpg" />
+    <None Include="Images\butterfly.jpg" />
+    <None Include="Images\eye.jpg" />
+    <None Include="Images\eyeball.jpg" />
+    <None Include="Images\fire.jpg" />
+    <None Include="Images\firefly.jpg" />
+    <None Include="Images\flower.jpg" />
+    <None Include="Images\fly.jpg" />
+    <None Include="Images\honey.jpg" />
+    <None Include="Images\horse.jpg" />
+    <None Include="Images\horseback.jpg" />
+    <None Include="Images\light.jpg" />
+    <None Include="Images\lime.jpg" />
+    <None Include="Images\limestone.jpg" />
+    <None Include="Images\moon.jpg" />
+    <None Include="Images\pick.jpg" />
+    <None Include="Images\river.jpg" />
+    <None Include="Images\sand.jpg" />
+    <None Include="Images\sandstone.jpg" />
+    <None Include="Images\stone.jpg" />
+    <None Include="Images\sun.jpg" />
+    <None Include="Images\sunflower.jpg" />
+    <None Include="Images\tooth.jpg" />
+    <None Include="Images\toothpick.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

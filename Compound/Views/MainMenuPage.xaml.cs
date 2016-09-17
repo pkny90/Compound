@@ -14,7 +14,7 @@ namespace Compound
 			var soundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", SwapSoundIcon);
 
 			ToolbarItems.Add(soundToolbar);
-
+			Game game = new Game();
 			DependencyService.Get<IAudio>().PlayAudioFile("yayayaya.mp3");
 		}
 
@@ -32,7 +32,6 @@ namespace Compound
 		async void ChooseDifficulty(object sender, EventArgs e)
 		{
 			var action = await DisplayActionSheet("Please select a difficulty:", "Cancel", null, "Easy", "Medium", "Hard");
-
 		}
 
 		public void SwapSoundIcon()
