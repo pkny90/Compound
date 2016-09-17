@@ -15,7 +15,7 @@ namespace Compound
         public int Score { get; private set; }
         public int RemainingLives { get; private set; }
 
-		private List<Word> remainingGameWords;
+		public List<Word> remainingGameWords;
         public Game()
         {
 		    this.Score = 0;

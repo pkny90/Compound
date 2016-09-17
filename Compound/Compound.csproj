@@ -39,6 +39,39 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Data\wordlist.json" />
+    <EmbeddedResource Include="Views\GamePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\back.jpg" />
+    <EmbeddedResource Include="Images\ball.jpg" />
+    <EmbeddedResource Include="Images\basket.jpg" />
+    <EmbeddedResource Include="Images\basketball.jpg" />
+    <EmbeddedResource Include="Images\bone.jpg" />
+    <EmbeddedResource Include="Images\book.jpg" />
+    <EmbeddedResource Include="Images\butter.jpg" />
+    <EmbeddedResource Include="Images\butterfly.jpg" />
+    <EmbeddedResource Include="Images\eye.jpg" />
+    <EmbeddedResource Include="Images\eyeball.jpg" />
+    <EmbeddedResource Include="Images\fire.jpg" />
+    <EmbeddedResource Include="Images\firefly.jpg" />
+    <EmbeddedResource Include="Images\flower.jpg" />
+    <EmbeddedResource Include="Images\fly.jpg" />
+    <EmbeddedResource Include="Images\honey.jpg" />
+    <EmbeddedResource Include="Images\horse.jpg" />
+    <EmbeddedResource Include="Images\horseback.jpg" />
+    <EmbeddedResource Include="Images\light.jpg" />
+    <EmbeddedResource Include="Images\lime.jpg" />
+    <EmbeddedResource Include="Images\limestone.jpg" />
+    <EmbeddedResource Include="Images\moon.jpg" />
+    <EmbeddedResource Include="Images\pick.jpg" />
+    <EmbeddedResource Include="Images\river.jpg" />
+    <EmbeddedResource Include="Images\sand.jpg" />
+    <EmbeddedResource Include="Images\sandstone.jpg" />
+    <EmbeddedResource Include="Images\stone.jpg" />
+    <EmbeddedResource Include="Images\sun.jpg" />
+    <EmbeddedResource Include="Images\sunflower.jpg" />
+    <EmbeddedResource Include="Images\tooth.jpg" />
+    <EmbeddedResource Include="Images\toothpick.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -63,6 +96,10 @@
     <Compile Include="Game.cs" />
     <Compile Include="FileReader.cs" />
     <Compile Include="Models\Word.cs" />
+    <Compile Include="Views\GamePage.xaml.cs">
+      <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\GameViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -89,36 +126,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Images\back.jpg" />
-    <None Include="Images\ball.jpg" />
-    <None Include="Images\basket.jpg" />
-    <None Include="Images\basketball.jpg" />
-    <None Include="Images\bone.jpg" />
-    <None Include="Images\book.jpg" />
-    <None Include="Images\butter.jpg" />
-    <None Include="Images\butterfly.jpg" />
-    <None Include="Images\eye.jpg" />
-    <None Include="Images\eyeball.jpg" />
-    <None Include="Images\fire.jpg" />
-    <None Include="Images\firefly.jpg" />
-    <None Include="Images\flower.jpg" />
-    <None Include="Images\fly.jpg" />
-    <None Include="Images\honey.jpg" />
-    <None Include="Images\horse.jpg" />
-    <None Include="Images\horseback.jpg" />
-    <None Include="Images\light.jpg" />
-    <None Include="Images\lime.jpg" />
-    <None Include="Images\limestone.jpg" />
-    <None Include="Images\moon.jpg" />
-    <None Include="Images\pick.jpg" />
-    <None Include="Images\river.jpg" />
-    <None Include="Images\sand.jpg" />
-    <None Include="Images\sandstone.jpg" />
-    <None Include="Images\stone.jpg" />
-    <None Include="Images\sun.jpg" />
-    <None Include="Images\sunflower.jpg" />
-    <None Include="Images\tooth.jpg" />
-    <None Include="Images\toothpick.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
