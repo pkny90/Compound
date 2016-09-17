@@ -20,6 +20,12 @@ namespace Compound
 			PlayerScore = 60;
 		}
 
+		public Score(string name, int score)
+		{
+			this.PlayerName = name;
+			this.PlayerScore = score;
+		}
+
 		public void InsertScore(String name, int score)
 		{
 			this.PlayerName = name;

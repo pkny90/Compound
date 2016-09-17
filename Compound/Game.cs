@@ -42,8 +42,16 @@ namespace Compound
 			Random random = new Random();
 			var i = random.Next(remainingGameWords.Count);
 
-			currentWord = remainingGameWords[i];
-			remainingGameWords.RemoveAt(i);
+			if (i >= remainingGameWords.Count)
+			{
+				currentWord = null;
+			}
+			else 
+			{
+				currentWord = remainingGameWords[i];
+				remainingGameWords.RemoveAt(i);
+
+			}
         }
 
         public bool MakeGuess(string Guess)

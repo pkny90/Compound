@@ -42,6 +42,8 @@ namespace Compound
 		{
 			DataLoaded = true;
 			FetchScoreDataAsync();
+
+
 			/*_HighScoresList = new ObservableCollection<Score>();
 			// TODO: Replace hardcoded scores with querying a database and getting them
 			_HighScoresList.Add(
