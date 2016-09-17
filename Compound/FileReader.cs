@@ -6,14 +6,14 @@ namespace Compound
 {
 	// Reference for this code snippet:
 	// https://github.com/xamarin/xamarin-forms-samples/blob/master/WorkingWithFiles/PCL/WorkingWithFiles/LoadResourceText.cs
-	public class JsonReader
+	public class FileReader
 	{
 		public string JsonText { get; private set; }
-		public JsonReader(string fileName)
+		public FileReader(string fileName)
 		{
 			JsonText = "";
 
-			var assembly = typeof(JsonReader).GetTypeInfo().Assembly;
+			var assembly = typeof(FileReader).GetTypeInfo().Assembly;
 			Stream stream = assembly.GetManifestResourceStream(fileName);
 			using (var reader = new System.IO.StreamReader(stream))
 			{
