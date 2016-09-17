@@ -1,12 +1,4 @@
-{ "images": [
-  {
-    "word": "moonlight",
-    "first_image": "moon.jpg",
-    "second_image": "light.jpg",
-    "answer_image": "fjoij",
-    "first_word": "moon",
-    "second_word": "light"
-  },
+[
   {
     "word": "butterfly",
     "first_image": "butter.jpg",
@@ -19,7 +11,7 @@
     "word": "firefly",
     "first_image": "fire.jpg",
     "second_image": "fly.jpg",
-    "answer_image": "fjoij",
+    "answer_image": "firefly.jpg",
     "first_word": "fire",
     "second_word": "fly"
   },
@@ -30,14 +22,6 @@
     "answer_image": "basketball.jpg",
     "first_word": "basket",
     "second_word": "ball"
-  },
-  {
-    "word": "backbone",
-    "first_image": "back.jpg",
-    "second_image": "bone.jpg",
-    "answer_image": "backbone.jpg",
-    "first_word": "back",
-    "second_word": "bone"
   },
   {
     "word": "sunflower",
@@ -62,30 +46,14 @@
     "answer_image": "sandstone.jpg",
     "first_word": "sand",
     "second_word": "stone"
-  }
-  {
-    "word": "riverbank",
-    "first_image": "river.jpg",
-    "second_image": "bank.jpg",
-    "answer_image": "riverbank.jpg",
-    "first_word": "river",
-    "second_word": "bank"
   },
   {
     "word": "toothpick",
     "first_image": "tooth.jpg",
     "second_image": "pick.jpg",
-    "answer_image": "toothpick.jpg",
+    "answer_image": "toothpick.jpg",	
     "first_word": "tooth",
     "second_word": "pick"
-  },
-  {
-    "word": "horseback",
-    "first_image": "horse.jpg",
-    "second_image": "back.jpg",
-    "answer_image": "horseback.jpg",
-    "first_word": "horse",
-    "second_word": "back"
   },
   {
     "word": "limestone",
@@ -95,4 +63,4 @@
     "first_word": "lime",
     "second_word": "stone"
   }
-]}
+]
