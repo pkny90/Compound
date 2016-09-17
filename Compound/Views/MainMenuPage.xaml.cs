@@ -32,7 +32,6 @@ namespace Compound
 		async void ChooseDifficulty(object sender, EventArgs e)
 		{
 			var action = await DisplayActionSheet("Please select a difficulty:", "Cancel", null, "Easy", "Medium", "Hard");
-
 		}
 
 		public void SwapSoundIcon()
