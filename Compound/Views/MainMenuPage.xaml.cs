@@ -14,7 +14,7 @@ namespace Compound
 			var soundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", SwapSoundIcon);
 
 			ToolbarItems.Add(soundToolbar);
-
+			Game game = new Game();
 			DependencyService.Get<IAudio>().PlayAudioFile("yayayaya.mp3");
 		}
 

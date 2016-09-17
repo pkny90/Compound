@@ -38,6 +38,7 @@
     <EmbeddedResource Include="Views\AboutPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Data\wordlist.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -59,6 +60,8 @@
     <Compile Include="Data\DataAccessService.cs" />
     <Compile Include="CONSTANTS.cs" />
     <Compile Include="IAudio.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="JsonReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

@@ -15,13 +15,9 @@ namespace Compound
         public int Score { get; private set; }
         public int RemainingLives { get; private set; }
 
-        public Game(string Word, string FirstHalfWord, string SecondHalfWord)
+        public Game()
         {
-            this.Word = Word;
-            this.FirstHalfWord = FirstHalfWord;
-            this.SecondHalfWord = SecondHalfWord;
-
-            this.Score = 0;
+		    this.Score = 0;
             this.RemainingLives = 3;
 
             StartNewRound();
@@ -29,7 +25,9 @@ namespace Compound
 
         public void StartNewRound()
         {
-            
+			JsonReader reader = new JsonReader("Compound.Data.wordlist.json");
+			string jsonText = reader.JsonText;
+			System.Diagnostics.Debug.WriteLine(jsonText);
         }
 
         public bool MakeGuess(string Guess)
