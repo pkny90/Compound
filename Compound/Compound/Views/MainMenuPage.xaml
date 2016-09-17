@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:local="clr-namespace:Compound" 
+		x:Class="Compound.MainMenuPage">
+	<StackLayout Orientation="Vertical" 
+			Padding="50" 
+			HorizontalOptions="Center"
+			BackgroundColor="Transparent">
+		<Label Text="Compound" FontSize="50" XAlign="Center" />
+		<Label Text="A compound word game" FontSize="15" XAlign="Center"  /> 
+		<StackLayout x:Name="buttonStack"
+				HorizontalOptions="CenterAndExpand"
+				VerticalOptions="CenterAndExpand" >
+
+		<Button Text="Play" Clicked="ChooseDifficulty" BackgroundColor="Blue" TextColor="White" WidthRequest = "150" HeightRequest = "40" />
+		<Button Text="About" Clicked="GoToAboutPage" BackgroundColor="Blue" TextColor="White" WidthRequest = "150" HeightRequest = "40" />
+		<Button Text="High Scores" Clicked="GoToHighScorePage" BackgroundColor="Blue" TextColor="White" WidthRequest = "150" HeightRequest = "40" /> 
+
+			</StackLayout>
+
+	</StackLayout>
+</ContentPage>
