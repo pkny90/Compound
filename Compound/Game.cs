@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace Compound
 {
-    class Game
+    public class Game
     {
 		public Word currentWord { get; private set; }
         public int Score { get; private set; }

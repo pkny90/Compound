@@ -30,6 +30,28 @@ namespace Compound
 			secondImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", game.currentWord.second_image));
 		}
 
+		public GamePage(bool soundIsPlaying, Game game)
+		{
+			this.game = game;
+			this.soundIsPlaying = soundIsPlaying;
+
+			InitializeComponent();
+
+			ToolbarItem soundToolbar;
+			if (soundIsPlaying)
+				soundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", SwapSoundIcon);
+			else
+				soundToolbar = new ToolbarItem("Sound", "sound-icon-off.png", SwapSoundIcon);
+			ToolbarItems.Add(soundToolbar);
+
+
+			scoreLabel.Text = "Score: " + game.Score;
+
+			// Initalise images
+			firstImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", game.currentWord.first_image));
+			secondImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", game.currentWord.second_image));
+		}
+
 		void Submit_Answer_Clicked(object sender, System.EventArgs e)
 		{
 			string guess = guessText.Text;
@@ -37,6 +59,10 @@ namespace Compound
 			{
 				guess = "this is the wrong answer.";
 			}
+
+			string answerWord = game.currentWord.word;
+			string answerImage = game.currentWord.answer_image;
+
 			game.MakeGuess(guess.ToLower());
 
 			guessText.Text = "";
@@ -50,9 +76,11 @@ namespace Compound
 			}
 			catch (NullReferenceException)
 			{
-				ExitGame();
+				
 			}
 
+			var answerPage = new GameAnswerPage(game, answerImage, answerWord);
+			Navigation.PushModalAsync(answerPage);
 		}
 
 		private void ExitGame()
