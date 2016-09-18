@@ -72,6 +72,9 @@
     <EmbeddedResource Include="Images\sunflower.jpg" />
     <EmbeddedResource Include="Images\tooth.jpg" />
     <EmbeddedResource Include="Images\toothpick.jpg" />
+    <EmbeddedResource Include="Views\GameAnswerPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -98,6 +101,9 @@
     <Compile Include="Models\Word.cs" />
     <Compile Include="Views\GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GameAnswerPage.xaml.cs">
+      <DependentUpon>GameAnswerPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
