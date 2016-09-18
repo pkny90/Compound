@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:local="clr-namespace:Compound;assembly=Compound" 
+		x:Class="Compound.GamePage"
+		Title="Compound" >
+	<ContentPage.Content>
+		<StackLayout Orientation="Vertical"
+				Padding="10">
+
+			<StackLayout Orientation="Horizontal">
+				<Label Text="Score: " XAlign="Center" />
+				<Label x:Name="scoreLabel" Text="0" XAlign="Center" />
+			</StackLayout>
+
+
+			<StackLayout Orientation="Vertical" Padding="10">
+				<Image x:Name="firstImage" />
+				<Image x:Name="secondImage" />
+			</StackLayout>
+
+			<Entry x:Name="guessText" Placeholder="Enter your guess here" />
+			<Button Clicked="Submit_Answer_Clicked" Text="Submit Answer" />
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

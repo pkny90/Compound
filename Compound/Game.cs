@@ -15,7 +15,7 @@ namespace Compound
         public int Score { get; private set; }
         public int RemainingLives { get; private set; }
 
-		private List<Word> remainingGameWords;
+		public List<Word> remainingGameWords;
         public Game()
         {
 		    this.Score = 0;
@@ -42,8 +42,16 @@ namespace Compound
 			Random random = new Random();
 			var i = random.Next(remainingGameWords.Count);
 
-			currentWord = remainingGameWords[i];
-			remainingGameWords.RemoveAt(i);
+			if (i >= remainingGameWords.Count)
+			{
+				currentWord = null;
+			}
+			else 
+			{
+				currentWord = remainingGameWords[i];
+				remainingGameWords.RemoveAt(i);
+
+			}
         }
 
         public bool MakeGuess(string Guess)
