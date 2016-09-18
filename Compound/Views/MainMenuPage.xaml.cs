@@ -6,15 +6,22 @@ namespace Compound
 {
 	public partial class MainMenuPage : ContentPage
 	{
-		private bool soundIsPlaying = true;
+		private bool soundIsPlaying;
 
-		public MainMenuPage()
+		public MainMenuPage(bool soundIsPlaying)
 		{
+			this.soundIsPlaying = soundIsPlaying;
+
 			InitializeComponent();
-			var soundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", SwapSoundIcon);
+
+			ToolbarItem soundToolbar;
+			if (soundIsPlaying) 
+				soundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", SwapSoundIcon);
+			else
+				soundToolbar = new ToolbarItem("Sound", "sound-icon-off.png", SwapSoundIcon);
 
 			ToolbarItems.Add(soundToolbar);
-			DependencyService.Get<IAudio>().PlayAudioFile("yayayaya.mp3");
+			// DependencyService.Get<IAudio>().PlayAudioFile("yayayaya.mp3");
 		}
 
 		public void GoToHighScorePage(object sender, EventArgs e)
@@ -31,7 +38,7 @@ namespace Compound
 		async void ChooseDifficulty(object sender, EventArgs e)
 		{
 			await DisplayActionSheet("Please select a difficulty:", "Cancel", null, "Easy", "Medium", "Hard");
-			var gamePage = new GamePage();
+			var gamePage = new GamePage(soundIsPlaying);
 			Navigation.PushAsync(gamePage);
 		}
 
