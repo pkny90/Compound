@@ -6,15 +6,24 @@ namespace Compound
 {
 	public partial class MainMenuPage : ContentPage
 	{
-		private bool soundIsPlaying = true;
+		private bool soundIsPlaying;
+		private double width;
+		private double height;
 
-		public MainMenuPage()
+		public MainMenuPage(bool soundIsPlaying)
 		{
+			this.soundIsPlaying = soundIsPlaying;
+
 			InitializeComponent();
-			var soundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", SwapSoundIcon);
+
+			ToolbarItem soundToolbar;
+			if (soundIsPlaying) 
+				soundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", SwapSoundIcon);
+			else
+				soundToolbar = new ToolbarItem("Sound", "sound-icon-off.png", SwapSoundIcon);
 
 			ToolbarItems.Add(soundToolbar);
-			DependencyService.Get<IAudio>().PlayAudioFile("yayayaya.mp3");
+			// DependencyService.Get<IAudio>().PlayAudioFile("yayayaya.mp3");
 		}
 
 		public void GoToHighScorePage(object sender, EventArgs e)
@@ -30,9 +39,22 @@ namespace Compound
 
 		async void ChooseDifficulty(object sender, EventArgs e)
 		{
-			await DisplayActionSheet("Please select a difficulty:", "Cancel", null, "Easy", "Medium", "Hard");
-			var gamePage = new GamePage();
-			Navigation.PushAsync(gamePage);
+			var action = await DisplayActionSheet("Please select a difficulty:", "Cancel", null, "Easy", "Medium", "Hard");
+			if (action == "Easy")
+			{
+				var gamePage = new GamePage(soundIsPlaying,3);
+				await Navigation.PushAsync(gamePage);
+			}
+			if (action == "Medium")
+			{
+				var gamePage = new GamePage(soundIsPlaying,2);
+				await Navigation.PushAsync(gamePage);
+			}
+			if (action == "Hard")
+			{
+				var gamePage = new GamePage(soundIsPlaying,1);
+				await Navigation.PushAsync(gamePage);
+			}
 		}
 
 		public void SwapSoundIcon()
@@ -53,6 +75,24 @@ namespace Compound
 				DependencyService.Get<IAudio>().PlayAudioFile("yayayaya.mp3");
 			}
 			ToolbarItems.Add(newSoundToolbar);
+		}
+
+		protected override void OnSizeAllocated(double width, double height)
+		{
+			base.OnSizeAllocated(width, height);
+			if (width != this.width || height != this.height)
+			{
+				this.width = width;
+				this.height = height;
+				if (width > height)
+				{
+					outerStack.Orientation = StackOrientation.Horizontal;
+				}
+				else {
+					outerStack.Orientation = StackOrientation.Vertical;
+				}
+			}
+			
 		}
 	}
 }

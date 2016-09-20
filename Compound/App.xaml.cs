@@ -4,11 +4,12 @@ namespace Compound
 {
 	public partial class App : Application
 	{
+		bool soundIsPlaying = true;
 		public App()
 		{
 			InitializeComponent();
 
-			MainPage = new NavigationPage(new MainMenuPage());
+			MainPage = new NavigationPage(new MainMenuPage(soundIsPlaying));
 		}
 
 		protected override void OnStart()
