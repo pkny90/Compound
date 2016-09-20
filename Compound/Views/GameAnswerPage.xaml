@@ -1,13 +1,21 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Compound.GameAnswerPage">
 	<ContentPage.Content>
-
-		<StackLayout Orientation="Vertical" Padding="100">
-			<Image x:Name="answerImage" />
-			<Label x:Name="answerWord" XAlign="Center" />
-			<Label x:Name="userFeedback" XAlign="Center" />
-			<Button Clicked="NextWordClicked" Text="Next Word" />
-			<Button Clicked="ExitGameClicked" Text="Exit Game" />
+	<StackLayout BackgroundColor="Aqua">
+		<StackLayout Orientation="Vertical" Padding="20" x:Name="answerlayout" HorizontalOptions="Center" >
+			<Image x:Name="answerImage" WidthRequest="200" HeightRequest="200" />
+			<StackLayout Orientation="Vertical" Padding="20">
+				<Label x:Name="rightOrWrong" XAlign="Center" FontSize="30" TextColor="Fuchsia"/>
+				<Label Text="The word was" HorizontalOptions="Center"/>
+				<Label x:Name="answerWord" XAlign="Center" TextColor="Fuchsia"/>
+				<Label Text="Current Score: " HorizontalOptions="Center"/>
+				<Label x:Name="userFeedback" XAlign="Center" TextColor="Fuchsia"/>
+					</StackLayout>
+			</StackLayout>
+			<StackLayout Orientation="Vertical" Padding="10">
+			<Button Clicked="NextWordClicked" Text="Next Word" BackgroundColor="Blue" TextColor="White"  WidthRequest = "150" HeightRequest = "40"/>
+			<Button Clicked="ExitGameClicked" Text="Exit Game" BackgroundColor="Blue" TextColor="White"  WidthRequest = "150" HeightRequest = "40"/>
+		</StackLayout>
 		</StackLayout>
 		
 	</ContentPage.Content>

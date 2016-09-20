@@ -54,21 +54,24 @@ namespace Compound
 			}
         }
 
-        public bool MakeGuess(string Guess)
-        {
+		public String MakeGuess(string Guess)
+		{
+			string res;
 			if (Guess == currentWord.word)
             {
 				StartNewRound();
 
 				this.Score += 1000;
-                return true;
+				res = "Yes!";
+                return res;
             }
             else
             {
 				StartNewRound();
 
 				this.RemainingLives--;
-                return false;
+				res = "Sorry";
+                return res;
             }
         }
 
