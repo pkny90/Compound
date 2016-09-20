@@ -62,7 +62,7 @@ namespace Compound
 				StartNewRound();
 
 				this.Score += 1000;
-				res = "Yes!";
+				res = "Nice job!";
                 return res;
             }
             else
@@ -70,12 +70,12 @@ namespace Compound
 				StartNewRound();
 
 				this.RemainingLives--;
-				res = "Sorry";
+				res = "Nice try! Better luck next time.";
                 return res;
             }
         }
 
-        public string GetHint(string Hint)
+        public string GetHint()
         {
             Score -= 500;
             var randomGenerator = new Random();
@@ -83,11 +83,12 @@ namespace Compound
 
             if (randomNumber == 1)
             {
-				return this.currentWord.first_word;
+				
+				return "The first half of the word is: " + this.currentWord.first_word;
             }
             else
             {
-				return this.currentWord.second_word;
+				return "The second half of the word is: " + this.currentWord.second_word;
             }
         }
     }

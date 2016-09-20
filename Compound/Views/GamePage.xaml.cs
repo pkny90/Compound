@@ -22,11 +22,13 @@ namespace Compound
 
 			ToolbarItem soundToolbar;
 			ToolbarItem hints;
+
 			hints = new ToolbarItem("Hints", "ic_lightbulb", UseHints);
 			if (soundIsPlaying)
 				soundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", SwapSoundIcon);
 			else
 				soundToolbar = new ToolbarItem("Sound", "sound-icon-off.png", SwapSoundIcon);
+			
 			ToolbarItems.Add(soundToolbar);
 			ToolbarItems.Add(hints);
 
@@ -44,6 +46,7 @@ namespace Compound
 			this.soundIsPlaying = soundIsPlaying;
 
 			InitializeComponent();
+			NavigationPage.SetHasBackButton(this, false);
 
 			ToolbarItem soundToolbar;
 			if (soundIsPlaying)
@@ -57,10 +60,16 @@ namespace Compound
 
 			scoreLabel.Text = " " + game.Score;
 
-			// Initalise images
-			firstImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", game.currentWord.first_image));
-			secondImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", game.currentWord.second_image));
-
+			// Initalise images - will throw exception if no words are left and end the game
+			try 
+			{
+				firstImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", game.currentWord.first_image));
+				secondImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", game.currentWord.second_image));
+			}
+			catch (NullReferenceException)
+			{
+				ExitGame();
+			}
 		}
 
 		async void Submit_Answer_Clicked(object sender, System.EventArgs e)
@@ -90,8 +99,8 @@ namespace Compound
 
 			}
 
-			var answerPage = new GameAnswerPage(game, answerImage, answerWord,a);;
-			await Navigation.PushModalAsync(answerPage);
+			var answerPage = new GameAnswerPage(soundIsPlaying, game, answerImage, answerWord,a);;
+			await Navigation.PushAsync(answerPage);
 		}
 
 		private void ExitGame()
@@ -100,14 +109,17 @@ namespace Compound
 			DataAccessService db = new DataAccessService();
 			db.InsertHighScore(score);
 
-			var mainPage = new MainMenuPage(soundIsPlaying);
-			Navigation.PushAsync(mainPage);
+			var mainPage =  new NavigationPage(new MainMenuPage(soundIsPlaying));
+			Navigation.PushModalAsync(mainPage);
 		}
 
 		private void SwapSoundIcon()
 		{
 			ToolbarItems.Clear();
 			ToolbarItem newSoundToolbar;
+			ToolbarItem hints;
+			hints = new ToolbarItem("Hints", "ic_lightbulb", UseHints);
+
 
 			if (soundIsPlaying)
 			{
@@ -123,11 +135,25 @@ namespace Compound
 				DependencyService.Get<IAudio>().PlayAudioFile("yayayaya.mp3");
 			}
 			ToolbarItems.Add(newSoundToolbar);
+			ToolbarItems.Add(hints);
 		}
 
 		private void UseHints()
 		{
-			DisplayAlert("Hint", game.GetHint(""), "OK");
+			DisplayAlert("Hint", game.GetHint(), "OK");
+
+			// Remove the hint button so no further hints can be used
+			ToolbarItems.Clear();
+			ToolbarItem soundToolbar;
+
+			if (soundIsPlaying)
+				soundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", SwapSoundIcon);
+			else
+				soundToolbar = new ToolbarItem("Sound", "sound-icon-off.png", SwapSoundIcon);
+
+			ToolbarItems.Add(soundToolbar);
+
+			scoreLabel.Text = game.Score.ToString();
 		}
 
 		protected override void OnSizeAllocated(double width, double height)
