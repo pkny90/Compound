@@ -99,7 +99,7 @@ namespace Compound
 
 			}
 
-			var answerPage = new GameAnswerPage(game, answerImage, answerWord,a);;
+			var answerPage = new GameAnswerPage(soundIsPlaying, game, answerImage, answerWord,a);;
 			await Navigation.PushAsync(answerPage);
 		}
 

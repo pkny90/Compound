@@ -10,13 +10,24 @@ namespace Compound
 		private Game game;
 		private double width;
 		private double height;
+		private bool soundIsPlaying;
 
-		public GameAnswerPage(Game game, string previousWordImage, string previousWord,string a)
+		public GameAnswerPage(bool soundIsPlaying, Game game, string previousWordImage, string previousWord,string a)
 		{
 			this.game = game;
+			this.soundIsPlaying = soundIsPlaying;
 
 			InitializeComponent();
 			NavigationPage.SetHasBackButton(this, false);
+
+			ToolbarItem soundToolbar;
+
+			if (soundIsPlaying)
+				soundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", SwapSoundIcon);
+			else
+				soundToolbar = new ToolbarItem("Sound", "sound-icon-off.png", SwapSoundIcon);
+
+			ToolbarItems.Add(soundToolbar);
 
 			answerImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", previousWordImage));
 			answerWord.Text =previousWord;
@@ -27,7 +38,7 @@ namespace Compound
 
 		void NextWordClicked(object sender, System.EventArgs e)
 		{
-			var gamePage = new GamePage(false, game);
+			var gamePage = new GamePage(soundIsPlaying, game);
 			Navigation.PushAsync(gamePage);
 		}
 
@@ -37,8 +48,29 @@ namespace Compound
 			Score score = new Score("Zoey", game.Score);
 			DataAccessService db = new DataAccessService();
 			db.InsertHighScore(score);
-			var mainPage = new NavigationPage(new MainMenuPage(false));
+			var mainPage = new NavigationPage(new MainMenuPage(soundIsPlaying));
 			Navigation.PushModalAsync(mainPage);
+		}
+
+		private void SwapSoundIcon()
+		{
+			ToolbarItems.Clear();
+			ToolbarItem newSoundToolbar;
+
+			if (soundIsPlaying)
+			{
+				soundIsPlaying = false;
+				newSoundToolbar = new ToolbarItem("Sound", "sound-icon-off.png", SwapSoundIcon);
+				DependencyService.Get<IAudio>().Stop();
+			}
+			else
+			{
+				soundIsPlaying = true;
+				newSoundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", SwapSoundIcon);
+
+				DependencyService.Get<IAudio>().PlayAudioFile("yayayaya.mp3");
+			}
+			ToolbarItems.Add(newSoundToolbar);
 		}
 
 		protected override void OnSizeAllocated(double width, double height)
