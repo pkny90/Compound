@@ -14,12 +14,13 @@ namespace Compound
 			InitializeComponent();
 			game = new Game();
 
-			// Initalise images
-			firstImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", game.currentWord.first_image));
+            // Initalise images
+            firstImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", game.currentWord.first_image));
 			secondImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", game.currentWord.second_image));
 		}
 
-		void Submit_Answer_Clicked(object sender, System.EventArgs e)
+     
+        void Submit_Answer_Clicked(object sender, System.EventArgs e)
 		{
 			string guess = guessText.Text;
 			if (guess == null)

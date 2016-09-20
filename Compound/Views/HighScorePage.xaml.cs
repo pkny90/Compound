@@ -17,7 +17,8 @@ namespace Compound
 			DependencyService.Get<IAudio>().PlayAudioFile("yayayaya.mp3");
 		}
 
-		private void SwapSoundIcon()
+    
+        private void SwapSoundIcon()
 		{
 			ToolbarItems.Clear();
 			ToolbarItem newSoundToolbar;

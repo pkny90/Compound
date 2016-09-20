@@ -1,6 +1,30 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Compound.AboutPage"
-		Title="About">
-	<ContentPage.Content>
-	</ContentPage.Content>
-</ContentPage>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TabbedPage  xmlns="http://xamarin.com/schemas/2014/forms"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		xmlns:o="clr-namespace:Octane.Xam.VideoPlayer;assembly=Octane.Xam.VideoPlayer"
+		xmlns:local="clr-namespace:Compound"
+		x:Class="Compound.MainMenuPage">
+		<TabbedPage.Children>
+		<ContentPage Title="Introduction" >
+		<Label Text ="This app has been made for project 2 by Tan, renrui_liu and zoey"></Label>
+		  <o:VideoPlayer Source="http://vjs.zencdn.net/v/oceans.mp4" />
+		   //	Converts a YouTube video ID into a compatible stream URL for playback.
+		</ContentPage>
+		<ContentPage Title="License" >
+<StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                <Label Text="hola" />
+                <Label Text="hola" />
+                <Label Text="hola" />
+                <Label Text="hola" />
+                <Label Text="chau" />
+            </StackLayout>
+        </ScrollView>
+            </StackLayout>
+	</ContentPage>
+	<ContentPage Title="Feedback" >
+	<Button Text ="Feedback" Clicked="WriteFeedback"/>
+	</ContentPage>
+	</TabbedPage.Children>
+</TabbedPage >
