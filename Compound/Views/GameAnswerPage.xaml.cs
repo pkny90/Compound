@@ -37,7 +37,7 @@ namespace Compound
 			DataAccessService db = new DataAccessService();
 			db.InsertHighScore(score);
 			var mainPage = new NavigationPage(new MainMenuPage(false));
-			Navigation.PushModalAsync(mainPage);
+			Navigation.PushAsync(mainPage);
 		}
 
 		protected override void OnSizeAllocated(double width, double height)
