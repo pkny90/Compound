@@ -5,22 +5,21 @@
 		x:Class="Compound.GamePage"
 		Title="Compound" >
 	<ContentPage.Content>
-		<StackLayout Orientation="Vertical"
-				Padding="10">
+		<StackLayout Orientation="Vertical" BackgroundColor="Aqua"
+				>
 
-			<StackLayout Orientation="Horizontal">
+			<StackLayout Orientation="Horizontal" Padding="10">
 				<Label Text="Score: " XAlign="Center" />
 				<Label x:Name="scoreLabel" Text="0" XAlign="Center" />
 			</StackLayout>
 
-
-			<StackLayout Orientation="Vertical" Padding="10">
-				<Image x:Name="firstImage" />
-				<Image x:Name="secondImage" />
+			<StackLayout Orientation="Vertical"  x:Name="imageStacklayout" HorizontalOptions="Center">
+				<Image x:Name="firstImage" WidthRequest="200" HeightRequest="200" />
+				<Image x:Name="secondImage" WidthRequest="200" HeightRequest="200" />
 			</StackLayout>
-
+			<StackLayout>
 			<Entry x:Name="guessText" Placeholder="Enter your guess here" />
-			<Button Clicked="Submit_Answer_Clicked" Text="Submit Answer" />
+			<Button Clicked="Submit_Answer_Clicked" Text="Submit Answer" BackgroundColor="Blue" TextColor="White" Margin="10"/></StackLayout>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

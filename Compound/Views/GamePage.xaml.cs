@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Compound
@@ -9,8 +9,11 @@ namespace Compound
 	{
 		Game game;
 		private bool soundIsPlaying = true;
+		private double width;
+		private double height;
+		EventArgs args;
 
-		public GamePage(bool soundIsPlaying)
+		public GamePage(bool soundIsPlaying,int i)
 		{
 			this.soundIsPlaying = soundIsPlaying;
 
@@ -18,16 +21,21 @@ namespace Compound
 			game = new Game();
 
 			ToolbarItem soundToolbar;
+			ToolbarItem hints;
+			hints = new ToolbarItem("Hints", "ic_lightbulb", UseHints);
 			if (soundIsPlaying)
 				soundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", SwapSoundIcon);
 			else
 				soundToolbar = new ToolbarItem("Sound", "sound-icon-off.png", SwapSoundIcon);
 			ToolbarItems.Add(soundToolbar);
+			ToolbarItems.Add(hints);
 
 
 			// Initalise images
 			firstImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", game.currentWord.first_image));
 			secondImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", game.currentWord.second_image));
+
+			//Device.StartTimer(SetDifficulty(i), () => { Submit_Answer_Clicked(game,args); return true; });;
 		}
 
 		public GamePage(bool soundIsPlaying, Game game)
@@ -43,17 +51,21 @@ namespace Compound
 			else
 				soundToolbar = new ToolbarItem("Sound", "sound-icon-off.png", SwapSoundIcon);
 			ToolbarItems.Add(soundToolbar);
+			ToolbarItem hints;
+			hints = new ToolbarItem("Hints", "ic_lightbulb", UseHints);
+			ToolbarItems.Add(hints);
 
-
-			scoreLabel.Text = "Score: " + game.Score;
+			scoreLabel.Text = " " + game.Score;
 
 			// Initalise images
 			firstImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", game.currentWord.first_image));
 			secondImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", game.currentWord.second_image));
+
 		}
 
-		void Submit_Answer_Clicked(object sender, System.EventArgs e)
+		async void Submit_Answer_Clicked(object sender, System.EventArgs e)
 		{
+
 			string guess = guessText.Text;
 			if (guess == null)
 			{
@@ -62,8 +74,7 @@ namespace Compound
 
 			string answerWord = game.currentWord.word;
 			string answerImage = game.currentWord.answer_image;
-
-			game.MakeGuess(guess.ToLower());
+			String a=game.MakeGuess(guess.ToLower());
 
 			guessText.Text = "";
 			scoreLabel.Text = game.Score.ToString();
@@ -76,11 +87,11 @@ namespace Compound
 			}
 			catch (NullReferenceException)
 			{
-				
+
 			}
 
-			var answerPage = new GameAnswerPage(game, answerImage, answerWord);
-			Navigation.PushModalAsync(answerPage);
+			var answerPage = new GameAnswerPage(game, answerImage, answerWord,a);;
+			await Navigation.PushModalAsync(answerPage);
 		}
 
 		private void ExitGame()
@@ -112,6 +123,46 @@ namespace Compound
 				DependencyService.Get<IAudio>().PlayAudioFile("yayayaya.mp3");
 			}
 			ToolbarItems.Add(newSoundToolbar);
+		}
+
+		private void UseHints()
+		{
+			DisplayAlert("Hint", game.GetHint(""), "OK");
+		}
+
+		protected override void OnSizeAllocated(double width, double height)
+		{
+			base.OnSizeAllocated(width, height);
+			if (width != this.width || height != this.height)
+			{
+				this.width = width;
+				this.height = height;
+				if (width > height)
+				{
+					imageStacklayout.Orientation = StackOrientation.Horizontal;
+				}
+				else {
+					imageStacklayout.Orientation = StackOrientation.Vertical;
+				}
+			}
+		}
+
+		private TimeSpan SetDifficulty(int i)
+		{
+			TimeSpan ts;
+			switch (i)
+			{
+				case 1:
+					ts = TimeSpan.FromSeconds(15);
+					break;
+				case 2:
+					ts = TimeSpan.FromSeconds(25);
+					break;
+				case 3:
+					ts = TimeSpan.FromSeconds(35);
+					break;
+			}
+			return ts;
 		}
 	}
 }
