@@ -27,7 +27,7 @@ namespace Compound
 		void NextWordClicked(object sender, System.EventArgs e)
 		{
 			var gamePage = new GamePage(false, game);
-			Navigation.PushModalAsync(gamePage);
+			Navigation.PushAsync(gamePage);
 		}
 
 		void ExitGameClicked(object sender, System.EventArgs e)
