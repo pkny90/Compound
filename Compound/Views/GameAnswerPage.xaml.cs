@@ -16,6 +16,7 @@ namespace Compound
 			this.game = game;
 
 			InitializeComponent();
+			NavigationPage.SetHasBackButton(this, false);
 
 			answerImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", previousWordImage));
 			answerWord.Text =previousWord;
@@ -37,7 +38,7 @@ namespace Compound
 			DataAccessService db = new DataAccessService();
 			db.InsertHighScore(score);
 			var mainPage = new NavigationPage(new MainMenuPage(false));
-			Navigation.PushAsync(mainPage);
+			Navigation.PushModalAsync(mainPage);
 		}
 
 		protected override void OnSizeAllocated(double width, double height)

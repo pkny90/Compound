@@ -46,6 +46,7 @@ namespace Compound
 			this.soundIsPlaying = soundIsPlaying;
 
 			InitializeComponent();
+			NavigationPage.SetHasBackButton(this, false);
 
 			ToolbarItem soundToolbar;
 			if (soundIsPlaying)
@@ -108,14 +109,17 @@ namespace Compound
 			DataAccessService db = new DataAccessService();
 			db.InsertHighScore(score);
 
-			var mainPage = new MainMenuPage(soundIsPlaying);
-			Navigation.PushAsync(mainPage);
+			var mainPage =  new NavigationPage(new MainMenuPage(soundIsPlaying));
+			Navigation.PushModalAsync(mainPage);
 		}
 
 		private void SwapSoundIcon()
 		{
 			ToolbarItems.Clear();
 			ToolbarItem newSoundToolbar;
+			ToolbarItem hints;
+			hints = new ToolbarItem("Hints", "ic_lightbulb", UseHints);
+
 
 			if (soundIsPlaying)
 			{
@@ -131,6 +135,7 @@ namespace Compound
 				DependencyService.Get<IAudio>().PlayAudioFile("yayayaya.mp3");
 			}
 			ToolbarItems.Add(newSoundToolbar);
+			ToolbarItems.Add(hints);
 		}
 
 		private void UseHints()
