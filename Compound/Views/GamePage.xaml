@@ -5,7 +5,11 @@
 		x:Class="Compound.GamePage"
 		Title="Compound" >
 	<ContentPage.Content>
+<<<<<<< HEAD
 		<StackLayout Orientation="Vertical" 
+=======
+		<StackLayout Orientation="Vertical" BackgroundColor="Aqua"
+>>>>>>> master
 				>
 
 			<StackLayout Orientation="Horizontal" Padding="10">

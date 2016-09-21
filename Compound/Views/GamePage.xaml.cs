@@ -11,6 +11,10 @@ namespace Compound
 		private bool soundIsPlaying = true;
 		private double width;
 		private double height;
+<<<<<<< HEAD
+=======
+		EventArgs args;
+>>>>>>> master
 
 		public GamePage(bool soundIsPlaying,int i)
 		{
@@ -39,7 +43,11 @@ namespace Compound
 			firstImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", game.currentWord.first_image));
 			secondImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", game.currentWord.second_image));
 
+<<<<<<< HEAD
 
+=======
+			//Device.StartTimer(SetDifficulty(i), () => { Submit_Answer_Clicked(game,args); return true; });;
+>>>>>>> master
 		}
 
 		public GamePage(bool soundIsPlaying, Game game)
@@ -51,6 +59,10 @@ namespace Compound
 			this.game = game;
 			this.soundIsPlaying = soundIsPlaying;
 
+<<<<<<< HEAD
+=======
+			InitializeComponent();
+>>>>>>> master
 			NavigationPage.SetHasBackButton(this, false);
 
 			ToolbarItem soundToolbar;
@@ -63,8 +75,12 @@ namespace Compound
 			hints = new ToolbarItem("Hints", "ic_lightbulb", UseHints);
 			ToolbarItems.Add(hints);
 
+<<<<<<< HEAD
 			scoreLabel.Text = game.Score.ToString();
 			livesLabel.Text = game.RemainingLives.ToString();
+=======
+			scoreLabel.Text = " " + game.Score;
+>>>>>>> master
 
 			// Initalise images - will throw exception if no words are left and end the game
 			try 
@@ -74,6 +90,7 @@ namespace Compound
 			}
 			catch (NullReferenceException)
 			{
+<<<<<<< HEAD
 				WordsRunOut();
 			}
 
@@ -82,6 +99,10 @@ namespace Compound
 				LivesRunOut();
 			}
 
+=======
+				ExitGame();
+			}
+>>>>>>> master
 		}
 
 		async void Submit_Answer_Clicked(object sender, System.EventArgs e)
@@ -122,9 +143,13 @@ namespace Compound
 			Navigation.PushModalAsync(mainPage);
 		}
 
+<<<<<<< HEAD
 		private void LivesRunOut()
 		{
 			var mainPage = new NavigationPage(new GameFinishPage(game.Score, soundIsPlaying, 3));
+=======
+			var mainPage =  new NavigationPage(new MainMenuPage(soundIsPlaying));
+>>>>>>> master
 			Navigation.PushModalAsync(mainPage);
 		}
 
@@ -188,6 +213,7 @@ namespace Compound
 			}
 		}
 
+<<<<<<< HEAD
 		private int SetDifficulty(int i)
 		{
 			int difficulty = i;
@@ -204,6 +230,24 @@ namespace Compound
 					break;
 			}
 			return difficulty;
+=======
+		private TimeSpan SetDifficulty(int i)
+		{
+			TimeSpan ts;
+			switch (i)
+			{
+				case 1:
+					ts = TimeSpan.FromSeconds(15);
+					break;
+				case 2:
+					ts = TimeSpan.FromSeconds(25);
+					break;
+				case 3:
+					ts = TimeSpan.FromSeconds(35);
+					break;
+			}
+			return ts;
+>>>>>>> master
 		}
 	}
 }

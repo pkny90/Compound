@@ -17,8 +17,13 @@ namespace Compound
 			InitializeComponent();
 			this.game = game;
 			this.soundIsPlaying = soundIsPlaying;
+<<<<<<< HEAD
 			this.BackgroundImage = "backgound1.png";
 
+=======
+
+			InitializeComponent();
+>>>>>>> master
 			NavigationPage.SetHasBackButton(this, false);
 
 			ToolbarItem soundToolbar;
@@ -45,7 +50,15 @@ namespace Compound
 
 		void ExitGameClicked(object sender, System.EventArgs e)
 		{
+<<<<<<< HEAD
 			var mainPage = new NavigationPage(new GameFinishPage(game.Score,soundIsPlaying,2));
+=======
+
+			Score score = new Score("Zoey", game.Score);
+			DataAccessService db = new DataAccessService();
+			db.InsertHighScore(score);
+			var mainPage = new NavigationPage(new MainMenuPage(soundIsPlaying));
+>>>>>>> master
 			Navigation.PushModalAsync(mainPage);
 		}
 
