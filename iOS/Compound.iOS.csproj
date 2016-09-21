@@ -151,11 +151,8 @@
     <BundleResource Include="Resources\sound-icon-on.png" />
     <BundleResource Include="Resources\yayayaya.mp3" />
     <BundleResource Include="Resources\ic_lightbulb.png" />
-<<<<<<< HEAD
-=======
     <BundleResource Include="Resources\ic_home_2x.png" />
     <BundleResource Include="Resources\backgound1.png" />
->>>>>>> feature/add-difficulties-and-end-game-page
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

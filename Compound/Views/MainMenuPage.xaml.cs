@@ -44,11 +44,7 @@ namespace Compound
 			var action = await DisplayActionSheet("Please select a difficulty:", "Cancel", null, "Easy", "Medium", "Hard");
 			if (action == "Easy")
 			{
-<<<<<<< HEAD
-				var gamePage = new GamePage(soundIsPlaying,3);
-=======
 				var gamePage = new GamePage(soundIsPlaying,1);
->>>>>>> feature/add-difficulties-and-end-game-page
 				await Navigation.PushAsync(gamePage);
 			}
 			if (action == "Medium")
@@ -58,11 +54,7 @@ namespace Compound
 			}
 			if (action == "Hard")
 			{
-<<<<<<< HEAD
-				var gamePage = new GamePage(soundIsPlaying,1);
-=======
 				var gamePage = new GamePage(soundIsPlaying,3);
->>>>>>> feature/add-difficulties-and-end-game-page
 				await Navigation.PushAsync(gamePage);
 			}
 		}

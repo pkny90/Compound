@@ -35,9 +35,6 @@
     <EmbeddedResource Include="Views\HighScorePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\AboutPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="Data\wordlist.json" />
     <EmbeddedResource Include="Views\GamePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -92,9 +89,6 @@
     </Compile>
     <Compile Include="ViewModels\HighScoreViewModel.cs" />
     <Compile Include="Models\Score.cs" />
-    <Compile Include="Views\AboutPage.xaml.cs">
-      <DependentUpon>AboutPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Data\IDBConnection.cs" />
     <Compile Include="Data\DataAccessService.cs" />
     <Compile Include="CONSTANTS.cs" />

@@ -13,7 +13,9 @@ namespace Compound
 
 			this.BackgroundImage = "backgound1.png";
 			this.soundIsPlaying = soundIsPlaying;
-
+			ToolbarItem Gohome;
+ 			Gohome = new ToolbarItem("Home", "ic_home_2x.png", gohome);
+ 			ToolbarItems.Add(Gohome);
 			ToolbarItem soundToolbar;
 			if (soundIsPlaying)
 				soundToolbar = new ToolbarItem("Sound", "sound-icon-on.png", SwapSoundIcon);
@@ -45,6 +47,11 @@ namespace Compound
 			ToolbarItems.Add(newSoundToolbar);
 		}
 
+		void gohome()
+ 		{
+ 			var mainPage = new NavigationPage(new MainMenuPage(soundIsPlaying));
+ 			Navigation.PushModalAsync(mainPage);
+ 		}
 	}
 }
 
