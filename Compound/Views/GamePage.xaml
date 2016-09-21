@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		xmlns:local="clr-namespace:Compound;assembly=Compound" 
@@ -11,6 +11,8 @@
 			<StackLayout Orientation="Horizontal" Padding="10">
 				<Label Text="Score: " XAlign="Center" />
 				<Label x:Name="scoreLabel" Text="0" XAlign="Center" />
+				<Label Text="Lives: "/>
+				<Label x:Name="livesLabel" />
 			</StackLayout>
 
 			<StackLayout Orientation="Vertical"  x:Name="imageStacklayout" HorizontalOptions="Center">

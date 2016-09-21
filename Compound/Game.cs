@@ -16,10 +16,10 @@ namespace Compound
         public int RemainingLives { get; private set; }
 
 		public List<Word> remainingGameWords;
-        public Game()
+        public Game(int difficulty)
         {
 		    this.Score = 0;
-            this.RemainingLives = 3;
+			this.RemainingLives = difficulty;
 
 			this.remainingGameWords = GetWordsFromJsonFile("Compound.Data.wordlist.json");
 			StartNewRound();

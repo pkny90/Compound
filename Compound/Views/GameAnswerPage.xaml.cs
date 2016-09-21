@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
@@ -14,10 +14,11 @@ namespace Compound
 
 		public GameAnswerPage(bool soundIsPlaying, Game game, string previousWordImage, string previousWord,string a)
 		{
+			InitializeComponent();
 			this.game = game;
 			this.soundIsPlaying = soundIsPlaying;
+			this.BackgroundImage = "backgound1.png";
 
-			InitializeComponent();
 			NavigationPage.SetHasBackButton(this, false);
 
 			ToolbarItem soundToolbar;
@@ -44,11 +45,7 @@ namespace Compound
 
 		void ExitGameClicked(object sender, System.EventArgs e)
 		{
-
-			Score score = new Score("Zoey", game.Score);
-			DataAccessService db = new DataAccessService();
-			db.InsertHighScore(score);
-			var mainPage = new NavigationPage(new MainMenuPage(soundIsPlaying));
+			var mainPage = new NavigationPage(new GameFinishPage(game.Score,soundIsPlaying,2));
 			Navigation.PushModalAsync(mainPage);
 		}
 

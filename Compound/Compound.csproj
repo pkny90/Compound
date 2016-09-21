@@ -75,6 +75,9 @@
     <EmbeddedResource Include="Views\GameAnswerPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\GameFinishPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -104,6 +107,9 @@
     </Compile>
     <Compile Include="Views\GameAnswerPage.xaml.cs">
       <DependentUpon>GameAnswerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GameFinishPage.xaml.cs">
+      <DependentUpon>GameFinishPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -11,14 +11,14 @@ namespace Compound
 		private bool soundIsPlaying = true;
 		private double width;
 		private double height;
-		EventArgs args;
 
 		public GamePage(bool soundIsPlaying,int i)
 		{
+			this.BackgroundImage = "backgound1.png";
 			this.soundIsPlaying = soundIsPlaying;
 
 			InitializeComponent();
-			game = new Game();
+			game = new Game(SetDifficulty(i));
 
 			ToolbarItem soundToolbar;
 			ToolbarItem hints;
@@ -33,19 +33,24 @@ namespace Compound
 			ToolbarItems.Add(hints);
 
 
+			livesLabel.Text = game.RemainingLives.ToString();
+
 			// Initalise images
 			firstImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", game.currentWord.first_image));
 			secondImage.Source = ImageSource.FromResource(string.Format("Compound.Images.{0}", game.currentWord.second_image));
 
-			//Device.StartTimer(SetDifficulty(i), () => { Submit_Answer_Clicked(game,args); return true; });;
+
 		}
 
 		public GamePage(bool soundIsPlaying, Game game)
 		{
+
+			InitializeComponent();
+
+			this.BackgroundImage = "backgound1.png";
 			this.game = game;
 			this.soundIsPlaying = soundIsPlaying;
 
-			InitializeComponent();
 			NavigationPage.SetHasBackButton(this, false);
 
 			ToolbarItem soundToolbar;
@@ -58,7 +63,8 @@ namespace Compound
 			hints = new ToolbarItem("Hints", "ic_lightbulb", UseHints);
 			ToolbarItems.Add(hints);
 
-			scoreLabel.Text = " " + game.Score;
+			scoreLabel.Text = game.Score.ToString();
+			livesLabel.Text = game.RemainingLives.ToString();
 
 			// Initalise images - will throw exception if no words are left and end the game
 			try 
@@ -68,8 +74,14 @@ namespace Compound
 			}
 			catch (NullReferenceException)
 			{
-				ExitGame();
+				WordsRunOut();
 			}
+
+			if (game.RemainingLives == 0)
+			{
+				LivesRunOut();
+			}
+
 		}
 
 		async void Submit_Answer_Clicked(object sender, System.EventArgs e)
@@ -87,6 +99,7 @@ namespace Compound
 
 			guessText.Text = "";
 			scoreLabel.Text = game.Score.ToString();
+			livesLabel.Text = game.RemainingLives.ToString();
 
 			// End the game if their are no words left as an exception will be thrown
 			try
@@ -103,13 +116,15 @@ namespace Compound
 			await Navigation.PushAsync(answerPage);
 		}
 
-		private void ExitGame()
+		private void WordsRunOut()
 		{
-			Score score = new Score("Zoey", game.Score);
-			DataAccessService db = new DataAccessService();
-			db.InsertHighScore(score);
+			var mainPage = new NavigationPage(new GameFinishPage(game.Score, soundIsPlaying, 1));
+			Navigation.PushModalAsync(mainPage);
+		}
 
-			var mainPage =  new NavigationPage(new MainMenuPage(soundIsPlaying));
+		private void LivesRunOut()
+		{
+			var mainPage = new NavigationPage(new GameFinishPage(game.Score, soundIsPlaying, 3));
 			Navigation.PushModalAsync(mainPage);
 		}
 
@@ -173,22 +188,22 @@ namespace Compound
 			}
 		}
 
-		private TimeSpan SetDifficulty(int i)
+		private int SetDifficulty(int i)
 		{
-			TimeSpan ts;
+			int difficulty = i;
 			switch (i)
 			{
 				case 1:
-					ts = TimeSpan.FromSeconds(15);
+					difficulty = 4;
 					break;
 				case 2:
-					ts = TimeSpan.FromSeconds(25);
+					difficulty = 3;
 					break;
 				case 3:
-					ts = TimeSpan.FromSeconds(35);
+					difficulty = 2;
 					break;
 			}
-			return ts;
+			return difficulty;
 		}
 	}
 }
