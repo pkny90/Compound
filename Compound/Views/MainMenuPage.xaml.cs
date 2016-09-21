@@ -15,6 +15,7 @@ namespace Compound
 			this.soundIsPlaying = soundIsPlaying;
 
 			InitializeComponent();
+			this.BackgroundImage = "backgound1.png";
 
 			ToolbarItem soundToolbar;
 			if (soundIsPlaying) 
@@ -28,13 +29,14 @@ namespace Compound
 
 		public void GoToHighScorePage(object sender, EventArgs e)
 		{
-			var highscorePage = new HighScorePage();
+			var highscorePage = new HighScorePage(soundIsPlaying);
 			Navigation.PushAsync(highscorePage);
 		}
+
 		public void GoToAboutPage(object sender, EventArgs e)
 		{
-			var aboutPage = new AboutPage();
-			Navigation.PushAsync(aboutPage);
+			//var aboutPage = new AboutPage();
+			//Navigation.PushAsync(aboutPage);
 		}
 
 		async void ChooseDifficulty(object sender, EventArgs e)
@@ -42,7 +44,7 @@ namespace Compound
 			var action = await DisplayActionSheet("Please select a difficulty:", "Cancel", null, "Easy", "Medium", "Hard");
 			if (action == "Easy")
 			{
-				var gamePage = new GamePage(soundIsPlaying,3);
+				var gamePage = new GamePage(soundIsPlaying,1);
 				await Navigation.PushAsync(gamePage);
 			}
 			if (action == "Medium")
@@ -52,7 +54,7 @@ namespace Compound
 			}
 			if (action == "Hard")
 			{
-				var gamePage = new GamePage(soundIsPlaying,1);
+				var gamePage = new GamePage(soundIsPlaying,3);
 				await Navigation.PushAsync(gamePage);
 			}
 		}

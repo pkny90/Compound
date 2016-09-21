@@ -14,7 +14,6 @@ namespace Compound
 		{
 			myConnection = DependencyService.Get<IDBConnection>().GetSQLiteAsyncConnection();
 			myConnection.CreateTableAsync<Score>();
-
 		}
 		public async Task<List<Score>> GetAllScoresAsync()
 		{
