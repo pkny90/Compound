@@ -1,6 +1,84 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Compound.AboutPage"
-		Title="About">
-	<ContentPage.Content>
-	</ContentPage.Content>
-</ContentPage>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TabbedPage  xmlns="http://xamarin.com/schemas/2014/forms"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		xmlns:o="clr-namespace:Octane.Xam.VideoPlayer;assembly=Octane.Xam.VideoPlayer"
+		xmlns:local="clr-namespace:Compound"
+		x:Class="Compound.MainMenuPage">
+		<TabbedPage.Children>
+		<ContentPage Title="Introduction" >
+		<Label Text ="This app has been made for project 2 by Tan, renrui_liu and zoey"></Label>
+		  <o:VideoPlayer Source="http://vjs.zencdn.net/v/oceans.mp4" />
+		   //	Converts a YouTube video ID into a compatible stream URL for playback.
+		</ContentPage>
+		<ContentPage Title="License" >
+<StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+						<!--
+                <Label Text="This app has been the work of Zoey Bendef, Renrui Liu, and Ngoc Tan Pham. The external resources used can be seen below. " />
+                <Label Text="Images Used Licence Information:" />
+                <Label Text="Butter picture: By Basvb - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=5712965" />
+                <Label Text="Moon picture: By This file is in the public domain in the United States because it was solely created by NASA. NASA copyright policy states that NASA material is not protected by copyright unless noted. (See Template:PD-USGov, NASA copyright policy page or JPL Image Use Policy.)Warnings:Use of NASA logos, insignia and emblems is restricted per U.S. law 14 CFR 1221.The NASA website hosts a large number of images from the Soviet/Russian space agency, and other non-American space agencies. These are not necessarily in the public domain.Materials based on Hubble Space Telescope data may be copyrighted if they are not explicitly produced by the STScI.[1] See also {{PD-Hubble}} and {{Cc-Hubble}}.The SOHO (ESA & NASA) joint project implies that all materials created by its probe are copyrighted and require permission for commercial non-educational use. [2]Images featured on the Astronomy Picture of the Day (APOD) web site may be copyrighted. [3]The National Space Science Data Center (NSSDC) site has been known to host copyrighted content even though its photo gallery FAQ states that all of the images in the photo gallery are in the public domain., Public Domain, https://commons.wikimedia.org/w/index.php?curid=64404" />
+                <Label Text="Light bulb picture: GFDL 1.2, https://commons.wikimedia.org/w/index.php?curid=829146" />
+				<Label Text="Fly picture: By kallerna - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=7330088
+ " />
+				<Label Text="Camp fire picture: CC BY-SA 2.0, https://commons.wikimedia.org/w/index.php?curid=202391
+ " />
+				<Label Text="Butterfly picture: By Photo (c)2006 Derek Ramsey (Ram-Man) - Own work (Own Picture), GFDL 1.2, https://commons.wikimedia.org/w/index.php?curid=1613174
+ " />
+				<Label Text="Firefly picture: By Terry Priest - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=31772163
+ " />
+				<Label Text="Basket picture: Public Domain, https://commons.wikimedia.org/w/index.php?curid=127043
+ " />
+				<Label Text="Baseball picture: By Tage Olsin - Cropped from Image:Baseball.jpg by Tage Olsin, CC BY-SA 2.0, https://commons.wikimedia.org/w/index.php?curid=2342225
+ " />
+				<Label Text="Basketball picture: By Reisio - Own work, Public Domain, https://commons.wikimedia.org/w/index.php?curid=542943
+ " />
+				<Label Text="Back picture: By James Heilman, MD - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=24076762
+ " />
+				<Label Text="Bone picture: By Henry Vandyke Carter - Henry Gray (1918) Anatomy of the Human Body (See "Book" section below)Bartleby.com: Gray's Anatomy, Plate 350, Public Domain, https://commons.wikimedia.org/w/index.php?curid=108273
+ " />
+				<Label Text="Sun picture: By Lykaestria at the English language Wikipedia, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=427065
+ " />
+				<Label Text="Flower picture: By Judgefloro - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=38146884
+ " />
+				<Label Text="Sunflower picture: By (c)2006 Derek Ramsey (Ram-Man) - Own work (Own Picture), GFDL 1.2, https://commons.wikimedia.org/w/index.php?curid=1349838
+ " />
+				<Label Text="Eye picture: By Woodwalker, with a retouche by Poxnar - WoodwalkerThis is a retouched picture, which means that it has been digitally altered from its original version. Modifications: increased contrast and some other adjustments. The original can be viewed here: Eagle(owl)-eye.JPG. Modifications made by Poxnar., CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=12265809
+ " />
+				<Label Text="Honey picture: By Scott Bauer, USDA ARS - This image was released by the Agricultural Research Service, the research agency of the United States Department of Agriculture, with the ID K7240-6 (next).This tag does not indicate the copyright status of the attached work. A normal copyright tag is still required. See Commons:Licensing for more information.English | français | македонски | +/−, Public Domain, https://commons.wikimedia.org/w/index.php?curid=33614
+ " />
+				<Label Text="Book picture: CC BY-SA 2.0, https://commons.wikimedia.org/w/index.php?curid=29535
+ " />
+				<Label Text="Sand picture: By Manfred Morgner (ka-em-zwei-ein), CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=168878
+ " />
+				<Label Text="Stone picture: By Khagani Hasanov1988 - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=48578350
+ " />
+				<Label Text="Sandstone: Public Domain, https://commons.wikimedia.org/w/index.php?curid=350583
+ " />
+				<Label Text="River picture: By TSGT CARY HUMPHRIES - http://www.defenseimagery.mil/imagery.html#guid=57abfca09c89ce71f3cd72029ccddfe744e75723, Public Domain, https://commons.wikimedia.org/w/index.php?curid=7663333
+ " />
+				<Label Text="Tooth picture: By dozenist - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=1587222
+ " />
+				<Label Text="Horse picture: By Newlitter - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=4795505
+ " />
+				<Label Text="Lime picture: Public Domain, https://commons.wikimedia.org/w/index.php?curid=208595
+ " />
+				<Label Text="Limestone picture: By Bernd Haynold - selbst fotografiert - own picture, CC BY 2.5, https://commons.wikimedia.org/w/index.php?curid=2257249
+ " />
+				<Label Text="Sound icon pictures: By Fabián Alexis - Own work, CC BY-SA 3.0,
+ " />
+				<Label Text="https://commons.wikimedia.org/wiki/File:Antu_player-volume.svg and
+ " />
+				<Label Text="https://commons.wikimedia.org/wiki/File:Antu_player-volume-muted.svg
+ " />
+						-->
+            </StackLayout>
+        </ScrollView>
+            </StackLayout>
+	</ContentPage>
+	<ContentPage Title="Feedback" >
+	<Button Text ="Feedback" Clicked="WriteFeedback"/>
+	</ContentPage>
+	</TabbedPage.Children>
+</TabbedPage >

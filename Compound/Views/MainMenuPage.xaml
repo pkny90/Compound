@@ -9,11 +9,11 @@
 			BackgroundColor="Transparent">
 		<Label Text="Compound" FontSize="50" XAlign="Center" />
 		<Label Text="A compound word game" FontSize="15" XAlign="Center"  /> 
-		<StackLayout VerticalOptions="CenterAndExpand" >
+		<StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" x:Name="outerStack">
 
-		<Button Text="Play" Clicked="ChooseDifficulty" BackgroundColor="Blue" TextColor="White"/>
-		<Button Text="About" Clicked="GoToAboutPage" BackgroundColor="Blue" TextColor="White"/>
-		<Button Text="High Scores" Clicked="GoToHighScorePage" BackgroundColor="Blue" TextColor="White"/> 
+		<Button Text="Play" Clicked="ChooseDifficulty" BackgroundColor="Blue" TextColor="White"  WidthRequest = "150" HeightRequest = "40"/>
+		<Button Text="About" Clicked="GoToAboutPage" BackgroundColor="Blue" TextColor="White"  WidthRequest = "150" HeightRequest = "40"/>
+		<Button Text="High Scores" Clicked="GoToHighScorePage" BackgroundColor="Blue" TextColor="White"  WidthRequest = "150" HeightRequest = "40"/> 
 
 			</StackLayout>
 

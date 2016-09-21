@@ -9,8 +9,22 @@ namespace Compound
 	{
 		public AboutPage()
 		{
-			InitializeComponent();
-		}
-	}
+
+	
+			this.BackgroundImage = "backgound1.png";
+		    /*var scroll = new ScrollView();
+            Content = scroll;
+            var stack = new StackLayout();
+            stack.Children.Add(new BoxView { BackgroundColor = Color.Red, HeightRequest = 600, WidthRequest = 600 });
+            stack.Children.Add(new Entry());
+       
+            Button WriteFeedback = new Button { Text = "Email" };
+            WriteFeedback.Clicked += (sender, e) =>
+            {
+                Device.OpenUri(new Uri("mailto:youremail@test.com"));
+            };*/
+        }
+
+    }
 }
 
