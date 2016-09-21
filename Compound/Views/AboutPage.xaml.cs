@@ -10,7 +10,7 @@ namespace Compound
 		public AboutPage()
 		{
 
-	
+			InitializeComponent();
 			this.BackgroundImage = "backgound1.png";
 		    /*var scroll = new ScrollView();
             Content = scroll;

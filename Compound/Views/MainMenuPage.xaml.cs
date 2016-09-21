@@ -35,8 +35,8 @@ namespace Compound
 
 		public void GoToAboutPage(object sender, EventArgs e)
 		{
-			var aboutPage = new AboutPage();
-			Navigation.PushAsync(aboutPage);
+			//var aboutPage = new AboutPage();
+			//Navigation.PushAsync(aboutPage);
 		}
 
 		async void ChooseDifficulty(object sender, EventArgs e)

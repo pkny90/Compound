@@ -3,7 +3,7 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 		xmlns:o="clr-namespace:Octane.Xam.VideoPlayer;assembly=Octane.Xam.VideoPlayer"
 		xmlns:local="clr-namespace:Compound"
-		x:Class="Compound.MainMenuPage">
+		x:Class="Compound.AboutPage">
 		<TabbedPage.Children>
 		<ContentPage Title="Introduction" >
 		<Label Text ="This app has been made for project 2 by Tan, renrui_liu and zoey"></Label>
