@@ -13,7 +13,8 @@
 
 		<Button Text="Play" Clicked="ChooseDifficulty" BackgroundColor="Blue" TextColor="White"  WidthRequest = "150" HeightRequest = "40"/>
 		<Button Text="High Scores" Clicked="GoToHighScorePage" BackgroundColor="Blue" TextColor="White"  WidthRequest = "150" HeightRequest = "40"/> 
-
+		<Button Text="About" Clicked="GoToAboutPage" BackgroundColor="Blue" TextColor="White"  WidthRequest = "150" HeightRequest = "40"/> 
+		<Button Text="Email" Clicked="GoToEmailPage" BackgroundColor="Blue" TextColor="White"  WidthRequest = "150" HeightRequest = "40"/> 
 			</StackLayout>
 
 	</StackLayout>

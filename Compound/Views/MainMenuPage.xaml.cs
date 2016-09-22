@@ -32,6 +32,16 @@ namespace Compound
 			var highscorePage = new HighScorePage(soundIsPlaying);
 			Navigation.PushAsync(highscorePage);
 		}
+		public void GoToAboutPage(object sender, EventArgs e)
+		{
+			var aboutpage = new AboutPage();
+			Navigation.PushAsync(aboutpage);
+		}
+		public void GoToEmailPage(object sender, EventArgs e)
+		{
+			var emailpage = new Email();
+			Navigation.PushAsync(emailpage);
+		}
 
 		async void ChooseDifficulty(object sender, EventArgs e)
 		{
